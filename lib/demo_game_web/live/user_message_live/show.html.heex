@@ -1,0 +1,27 @@
+<.header>
+  User message <%= @user_message.id %>
+  <:subtitle>This is a user_message record from your database.</:subtitle>
+  <:actions>
+    <.link patch={~p"/user_messages/#{@user_message}/show/edit"} phx-click={JS.push_focus()}>
+      <.button>Edit user_message</.button>
+    </.link>
+  </:actions>
+</.header>
+
+<.list>
+  <:item title="Message"><%= @user_message.message %></:item>
+  <:item title="User name"><%= @user_message.user_name %></:item>
+</.list>
+
+<.back navigate={~p"/user_messages"}>Back to user_messages</.back>
+
+<.modal :if={@live_action == :edit} id="user_message-modal" show on_cancel={JS.patch(~p"/user_messages/#{@user_message}")}>
+  <.live_component
+    module={DemoGameWeb.UserMessageLive.FormComponent}
+    id={@user_message.id}
+    title={@page_title}
+    action={@live_action}
+    user_message={@user_message}
+    patch={~p"/user_messages/#{@user_message}"}
+  />
+</.modal>

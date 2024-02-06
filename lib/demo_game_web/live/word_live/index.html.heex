@@ -1,0 +1,11 @@
+<div class="flex gap-2 w-full justify-around align-baseline items-baseline">
+ <h1 class="font-semibold">Words list</h1>
+    <%= for word <- @words do %>
+    <h1><%= word %></h1>
+    <% end %>
+  <div class="bg-slate-500 text-white hover:bg-slate-600 rounded p-2 transition duration-0 hover:duration-150" >
+  <.link navigate={~p"/words/new"}>
+    Add word
+  </.link>
+ </div>
+</div>

@@ -1,0 +1,13 @@
+<.header class="bg-slate-200 rounded-lg p-7 w-full">
+<div class="flex gap-1 flex-col">
+  Listing User messages
+
+    <%= for message <- @messages do %>
+    <h1><%= message %></h1>
+    <% end %>
+<.form for={@form} phx-submit="saving" class="flex gap-2 justify-center">
+  <.input type="text" field={@form[:message]} />
+  <button class="bg-slate-500 text-white hover:bg-slate-600 rounded p-2 transition duration-0 hover:duration-150">Send</button>
+</.form>
+</div>
+</.header>

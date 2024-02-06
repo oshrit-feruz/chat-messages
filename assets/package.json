@@ -1,0 +1,10 @@
+{
+    "name": "chat-messages",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "deploy": "cd .. && mix assets.deploy && rm -f _build/esbuild*"
+    }
+  }
+  
